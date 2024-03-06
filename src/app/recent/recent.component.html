@@ -1,0 +1,34 @@
+<div class="">
+        <h1 class="font-bold mb-5">Recientes</h1>
+        <hr class="mb-4 dark:border-gray-600">
+
+        <div class="grid grid-cols-7 gap-4 items-center mb-4">
+                <p class="font-semibold"> </p>
+                <p class="font-semibold">Nombre</p>
+                <p class="font-semibold">Autor</p>
+                <p class="font-semibold">Tamaño</p>
+                <p class="font-semibold">Fecha de Adición</p>
+                <p class="font-semibold">Tag</p>
+                <p class="font-semibold">Opciones</p>
+
+        </div>
+        <div *ngFor="let file of files; let i = index" class="grid grid-cols-7 gap-4 items-center space-y-5 relative">
+                <div (click)="onClick()" style="display: contents;">
+                        <img [src]="file.icon" alt="File icon" class="w-9 h-9" (click)="onFileIconClick()">
+                        <p>{{ file.name }}</p>
+                        <p>{{ file.author }}</p>
+                        <p>{{ file.size }}</p>
+                        <p>{{ file.dateAdded }}</p>
+                </div>
+                <p>Tag</p>
+                <button (click)="isMenuOpen[i] = !isMenuOpen[i]" class="text-center w-1/12"><i
+                                class="material-icons">more_vert</i></button>
+
+                <div *ngIf="isMenuOpen[i]" class="absolute top-0 right-48 bg-white rounded shadow-md">
+                        <button class="block px-4 py-2 text-sm" (click)="isMenuOpen[i] = false">Opción 1</button>
+                        <button class="block px-4 py-2 text-sm" (click)="isMenuOpen[i] = false">Opción 2</button>
+                        <button class="block px-4 py-2 text-sm" (click)="isMenuOpen[i] = false">Opción 3</button>
+                </div>
+        </div>
+
+</div>
