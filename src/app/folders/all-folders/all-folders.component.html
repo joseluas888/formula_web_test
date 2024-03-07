@@ -1,12 +1,12 @@
 <div class="mb-10 overflow-y-auto max-h-[78vh] px-4">
     <div class="sticky top-0 left-0 bg-pink-200 rounded-lg z-50 p-2">
-        <button (click)="contentChange.emit('inicio')">Back</button> <!--Boton para volver-->
+        <button (click)="onClick()">Back</button> <!--Boton para volver-->
     </div>
     <h1 class="font-bold mb-5">Carpetas</h1>
     <div class="grid grid-cols-6 gap-8">
         <div *ngFor="let folder of folders; let i = index"
-            class="rounded-xl border border-black p-6 flex flex-col justify-between relative shadow-black shadow-md mb-2"
-            [ngClass]="getBgColor(folder)">
+            class="rounded-xl border border-black p-6 flex flex-col justify-between relative shadow-black shadow-md mb-2 cursor-pointer hover:scale-110 transition-transform"
+            [ngClass]="getBgColor(folder)" (click)="onClickFolder()">
             <button (click)="isMenuOpen[i] = !isMenuOpen[i]" class="absolute top-2 right-2">
                 <i class="material-icons">more_vert</i>
             </button>

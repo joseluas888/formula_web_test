@@ -5,8 +5,8 @@
     <div class="grid grid-cols-6 gap-8">
         <ng-container *ngFor="let folder of folders; let i = index">
             <div *ngIf="i < 5 || folders.length <= 6"
-                class="rounded-xl border border-black p-6 flex flex-col justify-between relative shadow-black shadow-md"
-                [ngClass]="getBgColor(folder)">
+                class="rounded-xl border border-black p-6 flex flex-col justify-between relative shadow-black shadow-md cursor-pointer hover:scale-110 transition-transform" 
+                [ngClass]="getBgColor(folder)" (click)="onFolderClick(folder)">
                 <button (click)="isMenuOpen[i] = !isMenuOpen[i]" class="absolute top-2 right-2">
                     <i class="material-icons">more_vert</i>
                 </button>
@@ -28,7 +28,7 @@
                     {{folder.files}} Archivos</p>
             </div>
         </ng-container>
-        <div *ngIf="folders.length > 6" class="rounded-xl border border-black p-6 flex flex-col relative shadow-black shadow-md align-middle justify-center items-center bg-yellow-200" (click)="onClick()">
+        <div *ngIf="folders.length > 6" class="rounded-xl border border-black p-6 flex flex-col relative shadow-black shadow-md align-middle justify-center items-center bg-yellow-200 hover:scale-110 transition-transform" (click)="onAllFoldersClick()">
             <i class="material-icons text-9xl">add</i>
         </div>
     </div>

@@ -21,7 +21,11 @@ export class AllFoldersComponent {
   @Output() contentChange = new EventEmitter<string>();
 
   onClick() {
-    this.contentChange.emit('allFolders');
+    this.contentChange.emit('inicio');
+  }
+
+  onClickFolder() {
+    this.contentChange.emit('folder');
   }
 
   folders: Folder[] = [

@@ -19,10 +19,18 @@ interface Folder {
 export class FoldersComponent {
 
   @Output() contentChange = new EventEmitter<string>();
+  @Output() folderChange = new EventEmitter<string>();
 
-  onClick() {
+  onAllFoldersClick() {
     this.contentChange.emit('allFolders');
   }
+
+  //quiero que cambie a folder y pase el folder
+  onFolderClick(folder: any) {
+    this.contentChange.emit('folder');
+    this.folderChange.emit(folder);
+  }
+
 
   folders: Folder[] = [
     {

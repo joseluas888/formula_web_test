@@ -1,0 +1,69 @@
+<div class="sticky top-0 left-0 bg-pink-200 rounded-lg z-50 p-2">
+    <button (click)="contentChange.emit('inicio')">Back</button> <!--Boton para volver-->
+</div>
+<div class="col-span-1 grid grid-cols-4 gap-4">
+    <!-- Componente de Carpetas -->
+    <div class="overflow-y-auto max-h-[78vh] px-4">
+        <div class="mb-10">
+            <h1 class="font-bold mb-5">Carpetas</h1>
+            <div class="grid grid-cols-2 gap-8">
+                <ng-container *ngFor="let folder of folders; let i = index">
+                    <div class="rounded-xl border border-black p-6 flex flex-col justify-between relative shadow-black shadow-md cursor-pointer hover:scale-110 transition-transform"
+                        [ngClass]="getBgColor(folder)">
+                        <button (click)="isMenuOpen[i] = !isMenuOpen[i]" class="absolute top-2 right-2">
+                            <i class="material-icons">more_vert</i>
+                        </button>
+                        <div *ngIf="isMenuOpen[i]" class="absolute top-8 right-2 bg-white rounded shadow-md">
+                            <button class="block px-4 py-2 text-sm" (click)="isMenuOpen[i] = false">Option 1</button>
+                            <button class="block px-4 py-2 text-sm" (click)="isMenuOpen[i] = false">Option 2</button>
+                            <button class="block px-4 py-2 text-sm" (click)="isMenuOpen[i] = false">Option 3</button>
+                        </div>
+                        <div>
+                            <h2 class="font-bold text-2xl mb-2">{{folder.title}}</h2>
+                            <p class="text-lg text-gray-500 mb-2">Última modificación: <br> {{folder.lastModified}}</p>
+                            <div class="flex items-center space-x-2 mb-2">
+                                <img *ngFor="let user of folder.users" class="h-4 w-4 rounded-full" [src]="user"
+                                    alt="user image">
+                                <span class="text-sm text-gray-500">+2</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-500 self-end p-2 rounded-md" [ngClass]="getBgNumColor(folder)">
+                            {{folder.files}} Archivos</p>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+<!-- Componente de Documentos -->
+<div class="col-span-3 overflow-y-auto max-h-[78vh] px-4">
+    <h1 class="font-bold mb-5 text-center">Documentos</h1>
+    <hr class="mb-4 dark:border-gray-600">
+
+    <div class="grid grid-cols-5 gap-4 items-center mb-4 text-center">
+        <p class="font-semibold"> </p>
+        <p class="font-semibold">Nombre</p>
+        <p class="font-semibold">Tamaño</p>
+        <p class="font-semibold">Fecha de Adición</p>
+        <p class="font-semibold">Tag</p>
+    </div>
+    <div *ngFor="let file of files; let i = index"
+        class="hover:bg-blue-200 grid grid-cols-5 gap-4 items-center space-y-5 relative text-center">
+        <div class="p-2" (click)="onClick()" style="display: contents;">
+            <div class="flex justify-center">
+                <img [src]="file.icon" alt="File icon" class="w-11 h-11 m-2">
+            </div>
+            <p>{{ file.name }}</p>
+            <p>{{ file.size }}</p>
+            <p>{{ file.dateAdded }}</p>
+            <p>Tag</p>
+        </div>
+        <div *ngIf="isMenuOpen[i]" class="absolute top-0 right-48 bg-white rounded shadow-md">
+            <button class="block px-4 py-2 text-sm" (click)="isMenuOpen[i] = false">Opción 1</button>
+            <button class="block px-4 py-2 text-sm" (click)="isMenuOpen[i] = false">Opción 2</button>
+            <button class="block px-4 py-2 text-sm" (click)="isMenuOpen[i] = false">Opción 3</button>
+        </div>
+    </div>
+</div>
+
+</div>
