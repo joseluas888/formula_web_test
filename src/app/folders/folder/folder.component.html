@@ -1,5 +1,5 @@
 <div class="sticky top-0 left-0 bg-pink-200 rounded-lg z-50 p-2">
-    <button (click)="contentChange.emit('inicio')">Back</button> <!--Boton para volver-->
+    <button [routerLink]="['/inicio']">Back</button> <!--Boton para volver-->
 </div>
 <div class="col-span-1 grid grid-cols-4 gap-4">
     <!-- Componente de Carpetas -->
@@ -9,7 +9,7 @@
             <div class="grid grid-cols-2 gap-8">
                 <ng-container *ngFor="let folder of folders; let i = index">
                     <div class="rounded-xl border border-black p-6 flex flex-col justify-between relative shadow-black shadow-md cursor-pointer hover:scale-110 transition-transform"
-                        [ngClass]="getBgColor(folder)">
+                        [ngClass]="getBgColor(folder)" [routerLink]="['/folder']" > <!--Debe cambiar a folder/HASH del folder que se quiere abrir-->
                         <button (click)="isMenuOpen[i] = !isMenuOpen[i]" class="absolute top-2 right-2">
                             <i class="material-icons">more_vert</i>
                         </button>
@@ -49,7 +49,7 @@
     </div>
     <div *ngFor="let file of files; let i = index"
         class="hover:bg-blue-200 grid grid-cols-5 gap-4 items-center space-y-5 relative text-center">
-        <div class="p-2" (click)="onClick()" style="display: contents;">
+        <div class="p-2" [routerLink]="['/preview']" style="display: contents;">
             <div class="flex justify-center">
                 <img [src]="file.icon" alt="File icon" class="w-11 h-11 m-2">
             </div>

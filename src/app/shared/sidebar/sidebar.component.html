@@ -1,45 +1,43 @@
-<!-- app.component.html -->
-<div class="flex flex-col w-5/6 h-screen px-4 py-8 rounded-r-xl shadow-black shadow-xl bg-gray-50">
-    <div class="flex flex-col justify-center items-center mb-10">
-      <img class="w-20 h-20 -mb-4" src="assets/logo.svg" alt="Logo">
-      <h2 class="text-black text-2xl font-bold">FormulaWeb</h2>
-    </div>
-    <hr class="mb-10 dark:border-gray-600">
-    <button class="mb-10 w-full text-center text-gray-600 font-semibold">Agregar archivo</button>
-    <hr class="mb-16 dark:border-gray-600">
-    <div class="flex justify-center">
-      <nav class="space-y-24 flex flex-col items-start font-bold">
-        <a href="#" class="flex items-center space-x-2" (click)="selectItem('Inicio')" [ngClass]="{'text-black': selectedItem === 'Inicio', 'text-gray-600': selectedItem !== 'Inicio'}">
-          <i class="material-icons">home</i>
-          <span>Inicio</span>
-        </a>
-        <a href="#" class="flex items-center space-x-2" (click)="selectItem('Dashboard')" [ngClass]="{'text-black': selectedItem === 'Dashboard', 'text-gray-600': selectedItem !== 'Dashboard'}">
-          <i class="material-icons">dashboard</i>
-          <span>Dashboard</span>
-        </a>
-        <a href="#" class="flex items-center space-x-2" (click)="selectItem('Bookmarks')" [ngClass]="{'text-black': selectedItem === 'Bookmarks', 'text-gray-600': selectedItem !== 'Bookmarks'}">
-          <i class="material-icons">bookmark</i>
-          <span>Bookmarks</span>
-        </a>
-        <a href="#" class="flex items-center space-x-2" (click)="selectItem('Statistics')" [ngClass]="{'text-black': selectedItem === 'Statistics', 'text-gray-600': selectedItem !== 'Statistics'}">
-          <i class="material-icons">bar_chart</i>
-          <span>Statistics</span>
-        </a>
-      </nav>
-    </div>
-    
-    <div class="mt-auto mb-8 flex flex-col bg-gradient-to-r from-pink-300 to-purple-300 p-4 rounded-lg">
-      <div class="flex justify-between items-center mb-4">
-        <h2 class="font-bold text-xl">Almacenamiento</h2>
+  <!-- app.sidebar.component.html -->
+  <div class="flex flex-col w-5/6 h-screen px-4 py-8 rounded-r-xl shadow-black shadow-xl bg-gray-50">
+      <div class="flex flex-col justify-center items-center mb-10">
+        <img class="w-20 h-20 -mb-4" src="assets/logo.svg" alt="Logo">
+        <h2 class="text-black text-2xl font-bold">FormulaWeb</h2>
       </div>
-      <div class="h-2 rounded-full bg-gray-200 mb-4">
-        <div class="h-full bg-blue-300 rounded-full" style="width: 75%;" ></div>
+      <hr class="mb-10 dark:border-gray-600">
+      <button class="mb-10 w-full text-center text-gray-600 font-semibold">Agregar archivo</button>
+      <hr class="mb-16 dark:border-gray-600">
+      <div class="flex justify-center">
+        <nav class="space-y-24 flex flex-col items-start font-bold">
+          <a href="#" class="flex items-center space-x-2" (click)="selectItem('Inicio')" [ngClass]="{'text-black': selectedItem === 'Inicio', 'text-gray-600': selectedItem !== 'Inicio'}">
+            <i class="material-icons">home</i>
+            <span>Inicio</span>
+          </a>
+          <a href="#" class="flex items-center space-x-2" (click)="selectItem('Dashboard')" [ngClass]="{'text-black': selectedItem === 'Dashboard', 'text-gray-600': selectedItem !== 'Dashboard'}">
+            <i class="material-icons">dashboard</i>
+            <span>Dashboard</span>
+          </a>
+          <a href="#" class="flex items-center space-x-2" (click)="selectItem('Bookmarks')" [ngClass]="{'text-black': selectedItem === 'Bookmarks', 'text-gray-600': selectedItem !== 'Bookmarks'}">
+            <i class="material-icons">bookmark</i>
+            <span>Bookmarks</span>
+          </a>
+          <a href="#" class="flex items-center space-x-2" (click)="selectItem('Statistics')" [ngClass]="{'text-black': selectedItem === 'Statistics', 'text-gray-600': selectedItem !== 'Statistics'}">
+            <i class="material-icons">bar_chart</i>
+            <span>Statistics</span>
+          </a>
+        </nav>
       </div>
-      <div class="flex justify-between text-sm">
-        <span>600 GB de 800 GB</span>
-        <span>75%</span>
+      
+      <div class="mt-auto mb-8 flex flex-col bg-gradient-to-r from-pink-300 to-purple-300 p-4 rounded-lg">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="font-bold text-xl">Almacenamiento</h2>
+        </div>
+        <div class="h-2 rounded-full bg-gray-200 mb-4">
+          <div class="h-full bg-blue-300 rounded-full" style="width: 75%;" ></div>
+        </div>
+        <div class="flex justify-between text-sm">
+          <span>600 GB de 800 GB</span>
+          <span>75%</span>
+        </div>
       </div>
     </div>
-    
-    
-  </div>

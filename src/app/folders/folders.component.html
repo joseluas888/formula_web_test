@@ -1,12 +1,15 @@
 
 
 <div class="mb-10">
-    <h1 class="font-bold mb-5">Carpetas</h1>
+    <div class="flex justify-between">
+        <h1 class="font-bold mb-5">Carpetas</h1>
+        <button class="flex items-center rounded-xl bg-blue-950 text-white p-3 mb-5"><i class="material-icons font-bold">add</i> Nueva Carpeta </button>  
+    </div>
     <div class="grid grid-cols-6 gap-8">
         <ng-container *ngFor="let folder of folders; let i = index">
             <div *ngIf="i < 5 || folders.length <= 6"
-                class="rounded-xl border border-black p-6 flex flex-col justify-between relative shadow-black shadow-md cursor-pointer hover:scale-110 transition-transform" 
-                [ngClass]="getBgColor(folder)" (click)="onFolderClick(folder)">
+                class="rounded-xl border border-black p-6 flex flex-col justify-between relative shadow-black shadow-md cursor-pointer hover:scale-110 transition-transform " 
+                [ngClass]="getBgColor(folder)" [routerLink]="['/folder']">
                 <button (click)="isMenuOpen[i] = !isMenuOpen[i]" class="absolute top-2 right-2">
                     <i class="material-icons">more_vert</i>
                 </button>
@@ -15,20 +18,22 @@
                     <button class="block px-4 py-2 text-sm" (click)="isMenuOpen[i] = false">Option 2</button>
                     <button class="block px-4 py-2 text-sm" (click)="isMenuOpen[i] = false">Option 3</button>
                 </div>
-                <div>
-                    <h2 class="font-bold text-2xl mb-2">{{folder.title}}</h2>
-                    <p class="text-lg text-gray-500 mb-2">Última modificación: <br> {{folder.lastModified}}</p>
-                    <div class="flex items-center space-x-2 mb-2">
-                        <img *ngFor="let user of folder.users" class="h-4 w-4 rounded-full" [src]="user"
-                            alt="user image">
-                        <span class="text-sm text-gray-500">+2</span>
+                <div class="flex justify-between items-center">
+                    <div>
+                        <h2 class="font-bold text-2xl mb-2">{{folder.title}}</h2>
+                        <p class="text-lg text-gray-500 mb-2">Última modificación: <br> {{folder.lastModified}}</p>
+                        <div class="flex items-center space-x-2 mb-2">
+                            <img *ngFor="let user of folder.users" class="h-4 w-4 rounded-full" [src]="user"
+                                alt="user image">
+                            <span class="text-sm text-gray-500">+2</span>
+                        </div>
                     </div>
+                    <p class="text-sm text-gray-500 self-end p-2 rounded-md bg-gray-200" [ngClass]="getBgNumColor(folder)">
+                        {{folder.files}} Archivos</p>
                 </div>
-                <p class="text-sm text-gray-500 self-end p-2 rounded-md" [ngClass]="getBgNumColor(folder)">
-                    {{folder.files}} Archivos</p>
             </div>
         </ng-container>
-        <div *ngIf="folders.length > 6" class="rounded-xl border border-black p-6 flex flex-col relative shadow-black shadow-md align-middle justify-center items-center bg-yellow-200 hover:scale-110 transition-transform" (click)="onAllFoldersClick()">
+        <div *ngIf="folders.length > 6" class="rounded-xl border border-black p-6 flex flex-col relative shadow-black shadow-md align-middle justify-center items-center bg-yellow-200 hover:scale-110 transition-transform" [routerLink]="['/allfolders']">
             <i class="material-icons text-9xl">add</i>
         </div>
     </div>

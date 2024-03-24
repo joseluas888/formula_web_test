@@ -9,22 +9,24 @@
                 <p class="font-semibold">Tamaño</p>
                 <p class="font-semibold">Fecha de Adición</p>
                 <p class="font-semibold">Tag</p>
-                <p class="font-semibold">Opciones</p>
+                <i class="material-icons font-semibold">filter_alt</i>
 
         </div>
         <div *ngFor="let file of files; let i = index"
                 class="hover:bg-blue-200 grid grid-cols-7 gap-4 items-center space-y-5 relative text-center">
-                <div class="" (click)="onClick()" style="display: contents;">
+                <div class="cursor-pointer" [routerLink]="['/preview']" style="display: contents;">
                         <div class="flex justify-center">
-                                <img [src]="file.icon" alt="File icon" class="w-11 h-11" (click)="onFileIconClick()">
+                                <img [src]="file.icon" alt="File icon" class="w-11 h-11" [routerLink]="['/preview']">
                         </div>
                         <p>{{ file.name }}</p>
                         <p>{{ file.author }}</p>
                         <p>{{ file.size }}</p>
                         <p>{{ file.dateAdded }}</p>
                 </div>
-                <p>Tag</p>
-                <div class="flex justify-center">
+                <div class="" style="display: contents;">
+                        <p>Tag</p>
+                </div>
+                <div class="flex justify-center items-center">
                         <button (click)="isMenuOpen[i] = !isMenuOpen[i]" class="text-center w-1/12"><i
                                         class="material-icons">more_vert</i></button>
                 </div>

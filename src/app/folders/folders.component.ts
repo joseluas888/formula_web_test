@@ -1,5 +1,6 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 interface Folder {
   title: string;
@@ -12,25 +13,11 @@ interface Folder {
 @Component({
   selector: 'app-folders',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './folders.component.html',
   styleUrl: './folders.component.css',
 })
 export class FoldersComponent {
-
-  @Output() contentChange = new EventEmitter<string>();
-  @Output() folderChange = new EventEmitter<string>();
-
-  onAllFoldersClick() {
-    this.contentChange.emit('allFolders');
-  }
-
-  //quiero que cambie a folder y pase el folder
-  onFolderClick(folder: any) {
-    this.contentChange.emit('folder');
-    this.folderChange.emit(folder);
-  }
-
 
   folders: Folder[] = [
     {

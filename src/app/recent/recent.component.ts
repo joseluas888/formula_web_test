@@ -1,33 +1,17 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-recent',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './recent.component.html',
   styleUrl: './recent.component.css'
 })
 export class RecentComponent {
 
-  @Output() contentChange = new EventEmitter<string>();
-
-  onClick() {
-    this.contentChange.emit('preview');
-  }
-
   isMenuOpen: boolean[] = [];
-
-  onFileIconClick(){
-    this.showCadPreview = true;
-  }
-
-  showCadPreview = false;
-
-  hideAllExceptCadPreview() {
-    this.showCadPreview = false;
-  }
 
   files = [
     { icon: '/assets/audio-file-96.png', name: 'Podcast_Episodio1', author: 'Juan Pérez', size: '15 MB', dateAdded: '2024-01-10' },
