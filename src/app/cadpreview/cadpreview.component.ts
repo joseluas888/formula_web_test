@@ -1,9 +1,10 @@
 import { Component, Output, EventEmitter } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-cadpreview',
   standalone: true,
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './cadpreview.component.html',
   styleUrls: ['./cadpreview.component.css'],
 })

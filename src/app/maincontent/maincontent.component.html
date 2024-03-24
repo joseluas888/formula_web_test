@@ -1,13 +1,4 @@
-<!--
-    inicio, preview, folder, allFolders
--->
-<div class="flex-col min-h-[82vh] justify-between items-center mt-24 mr-16 p-4 shadow-black shadow-md rounded-xl bg-gray-50" [ngSwitch]="content">
-    <ng-container *ngSwitchCase="'inicio'">
-        <app-folders (contentChange)="oncontentChange($event)" />
-        <app-favorite />
-        <app-recent (contentChange)="oncontentChange($event)"/>
-    </ng-container>
-    <app-cadpreview (contentChange)="oncontentChange($event)" *ngSwitchCase="'preview'" u/>
-    <app-folder (contentChange)="oncontentChange($event)" (folderChange)="onFolderChange($event)" *ngSwitchCase="'folder'"/>
-    <app-all-folders (contentChange)="oncontentChange($event)" *ngSwitchCase="'allFolders'"/>
+<!-- main.component.html -->
+<div class="flex-col min-h-[82vh] justify-between items-center mt-24 mr-16 p-4 shadow-black shadow-md rounded-xl bg-gray-50">
+    <ng-content></ng-content>
 </div>

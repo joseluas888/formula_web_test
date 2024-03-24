@@ -1,4 +1,8 @@
-<div class="sticky top-0 left-0 bg-pink-200 rounded-lg z-50 p-2">
-    <button (click)="contentChange.emit('inicio')">Back</button> <!--Boton para volver-->
+<div class="flex items-center mb-2">
+    <h1 class="font-bold text-2xl mr-4">Nombre.extension</h1>
+    <button [routerLink]="['/inicio']" class="flex items-center bg-blue-400 rounded-full p-3"><i class="material-icons font-bold ">close</i></button>
+</div>
+<div class="mt-2 mb-5">
+    <button class="bg-blue-300 text-gray-700 px-2 py-1 rounded-lg text-base">Resumen</button>
 </div>
 <iframe class="w-full screen rounded-xl overflow-hidden" style="height: 75vh;" src="http://localhost:8080"></iframe>

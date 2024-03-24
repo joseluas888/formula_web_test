@@ -1,5 +1,6 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 interface Folder {
   title: string;
@@ -12,16 +13,11 @@ interface Folder {
 @Component({
   selector: 'app-folder',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './folder.component.html',
   styleUrl: './folder.component.css',
 })
 export class FolderComponent {
-  @Output() contentChange = new EventEmitter<string>();
-
-  onClick() {
-    this.contentChange.emit('inicio');
-  }
 
   files = [
     {
